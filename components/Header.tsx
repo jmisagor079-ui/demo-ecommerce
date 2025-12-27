@@ -51,7 +51,7 @@ const Header: React.FC = () => {
         </form>
 
         <div className="flex items-center gap-6">
-          <button className="lg:hidden text-gray-600"><Search size={24} /></button>
+          <button className="lg:hidden text-gray-600" onClick={() => navigate('/products')}><Search size={24} /></button>
           <div className="flex flex-col items-center cursor-pointer group">
             <User size={24} className="text-gray-700 group-hover:text-blue-600 transition-colors" />
             <span className="text-[10px] uppercase font-bold text-gray-400">Account</span>
@@ -77,10 +77,10 @@ const Header: React.FC = () => {
           </button>
           <div className="flex items-center gap-8 ml-6 text-sm font-medium text-gray-700">
             <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Flash Sale</Link>
+            <Link to="/flash-sale" className="hover:text-blue-600 transition-colors text-red-600 font-bold">Flash Sale</Link>
             <Link to="/products" className="hover:text-blue-600 transition-colors">Blogs</Link>
             <Link to="/products" className="hover:text-blue-600 transition-colors">Brands</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors text-blue-600">Categories</Link>
+            <Link to="/products" className="hover:text-blue-600 transition-colors">Categories</Link>
             <Link to="/products" className="hover:text-blue-600 transition-colors">Sellers</Link>
             <Link to="/products" className="hover:text-blue-600 transition-colors">Contact us</Link>
             <Link to="/products" className="hover:text-blue-600 transition-colors">Preorder</Link>

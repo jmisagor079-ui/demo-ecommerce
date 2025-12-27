@@ -9,6 +9,9 @@ export interface Product {
   rating: number;
   reviews: number;
   tag?: string;
+  soldCount?: number;
+  totalStock?: number;
+  isFlashSale?: boolean;
 }
 
 export interface Category {
