@@ -6,6 +6,8 @@ export interface Product {
   oldPrice?: number;
   image: string;
   category: string;
+  brandId?: string;
+  brandName?: string;
   rating: number;
   reviews: number;
   tag?: string;
@@ -19,6 +21,13 @@ export interface Category {
   name: string;
   image: string;
   icon?: string;
+}
+
+export interface Brand {
+  id: string;
+  name: string;
+  logo: string;
+  banner?: string;
 }
 
 export interface Banner {

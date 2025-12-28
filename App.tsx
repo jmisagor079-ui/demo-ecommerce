@@ -7,6 +7,8 @@ import Home from './pages/Home';
 import AllProducts from './pages/AllProducts';
 import ProductDetail from './pages/ProductDetail';
 import FlashSale from './pages/FlashSale';
+import Brands from './pages/Brands';
+import BrandDetail from './pages/BrandDetail';
 import { useEffect } from 'react';
 
 const App: React.FC = () => {
@@ -27,6 +29,8 @@ const App: React.FC = () => {
           <Route path="/flash-sale" element={<FlashSale />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/brands" element={<Brands />} />
+          <Route path="/brand/:id" element={<BrandDetail />} />
         </Routes>
       </div>
 

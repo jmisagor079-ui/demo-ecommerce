@@ -22,15 +22,15 @@ const Header: React.FC = () => {
           <span className="flex items-center gap-1"><Phone size={12} /> Call (0)</span>
         </div>
         <div className="flex gap-4">
-          <Link to="#" className="hover:text-blue-600">Login</Link>
-          <Link to="#" className="hover:text-blue-600">Registration</Link>
+          <Link to="#" className="hover:text-blue-600 transition-colors">Login</Link>
+          <Link to="#" className="hover:text-blue-600 transition-colors">Registration</Link>
         </div>
       </div>
 
       {/* Main Header */}
       <div className="container mx-auto px-4 py-4 flex items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-black rounded flex items-center justify-center text-white font-bold text-xl">
+          <div className="w-10 h-10 bg-black rounded flex items-center justify-center text-white font-bold text-xl shadow-lg">
             A
           </div>
           <div className="leading-tight">
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
           <div className="flex items-center gap-2 cursor-pointer group relative">
             <div className="relative">
               <ShoppingCart size={24} className="text-gray-700 group-hover:text-blue-600 transition-colors" />
-              <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold">0</span>
+              <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-bounce shadow-md">0</span>
             </div>
             <div className="lg:flex flex-col hidden">
               <span className="text-[10px] uppercase font-bold text-gray-400">Cart</span>
@@ -91,9 +91,9 @@ const Header: React.FC = () => {
               onMouseEnter={() => setActiveDropdown('categories')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'categories' ? 'text-blue-600' : 'text-gray-800'}`}>
+              <Link to="/products" className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'categories' ? 'text-blue-600' : 'text-gray-800'}`}>
                 Categories <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'categories' ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
 
               {/* Categories Mega Dropdown */}
               <div className={`absolute top-full left-0 w-[600px] bg-white shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top overflow-hidden z-[100] ${activeDropdown === 'categories' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
@@ -116,7 +116,7 @@ const Header: React.FC = () => {
                    ))}
                  </div>
                  <div className="bg-gray-50 p-4 text-center border-t">
-                    <Link to="/products" className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] hover:underline">View All Categories</Link>
+                    <Link to="/products" className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] hover:underline" onClick={() => setActiveDropdown(null)}>View All Categories</Link>
                  </div>
               </div>
             </div>
@@ -127,17 +127,17 @@ const Header: React.FC = () => {
               onMouseEnter={() => setActiveDropdown('brands')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <button className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'brands' ? 'text-blue-600' : 'text-gray-800'}`}>
+              <Link to="/brands" className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'brands' ? 'text-blue-600' : 'text-gray-800'}`}>
                 Brands <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'brands' ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
 
               {/* Brands Mega Dropdown */}
               <div className={`absolute top-full left-0 w-[450px] bg-white shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top overflow-hidden z-[100] ${activeDropdown === 'brands' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
                  <div className="p-8 grid grid-cols-3 gap-4 bg-white/80 backdrop-blur-xl">
-                   {BRANDS.map(brand => (
+                   {BRANDS.slice(0, 12).map(brand => (
                      <Link 
                        key={brand.id} 
-                       to="/products" 
+                       to={`/brand/${brand.id}`} 
                        className="flex flex-col items-center justify-center p-4 rounded-2xl border border-transparent hover:border-blue-100 hover:bg-blue-50 hover:shadow-inner transition-all group/brand"
                        onClick={() => setActiveDropdown(null)}
                      >
@@ -147,7 +147,7 @@ const Header: React.FC = () => {
                    ))}
                  </div>
                  <div className="bg-gray-900 p-4 text-center">
-                    <Link to="/products" className="text-[10px] font-black text-white uppercase tracking-[0.2em] hover:text-blue-400 transition-colors">Discover World-Class Brands</Link>
+                    <Link to="/brands" className="text-[10px] font-black text-white uppercase tracking-[0.2em] hover:text-blue-400 transition-colors" onClick={() => setActiveDropdown(null)}>Discover All World-Class Brands</Link>
                  </div>
               </div>
             </div>

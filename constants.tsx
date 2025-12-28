@@ -1,5 +1,5 @@
 
-import { Product, Category, Banner } from './types';
+import { Product, Category, Banner, Brand } from './types';
 
 export const CATEGORIES: Category[] = [
   { id: 'women', name: 'Women Clothing', image: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=200', icon: '👗' },
@@ -12,34 +12,41 @@ export const CATEGORIES: Category[] = [
   { id: 'home', name: 'Home Improvement', image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=200', icon: '🛠️' },
 ];
 
-export const BRANDS = [
-  { id: 'b1', name: 'Apple', logo: '🍎' },
-  { id: 'b2', name: 'Samsung', logo: '📱' },
-  { id: 'b3', name: 'Nike', logo: '👟' },
-  { id: 'b4', name: 'Adidas', logo: '🎽' },
-  { id: 'b5', name: 'Sony', logo: '🎮' },
-  { id: 'b6', name: 'LG', logo: '📺' },
-  { id: 'b7', name: 'Toyota', logo: '🚘' },
-  { id: 'b8', name: 'Honda', logo: '🏍️' },
-  { id: 'b9', name: 'Canon', logo: '📷' },
-  { id: 'b10', name: 'Dell', logo: '💻' },
-  { id: 'b11', name: 'HP', logo: '📠' },
-  { id: 'b12', name: 'Zara', logo: '🧥' },
+export const BRANDS: Brand[] = [
+  { id: 'apple', name: 'Apple', logo: '🍎', banner: 'https://images.unsplash.com/photo-1491933382434-500287f9b54b?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'samsung', name: 'Samsung', logo: '📱', banner: 'https://images.unsplash.com/photo-1610945415295-d9baf060e811?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'nike', name: 'Nike', logo: '👟', banner: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'adidas', name: 'Adidas', logo: '🎽', banner: 'https://images.unsplash.com/photo-1518002171953-a080ee81be46?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'sony', name: 'Sony', logo: '🎮', banner: 'https://images.unsplash.com/photo-1507457379470-08b8006bc693?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'lg', name: 'LG', logo: '📺', banner: 'https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'toyota', name: 'Toyota', logo: '🚘', banner: 'https://images.unsplash.com/photo-1621275476537-82b29975a85b?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'honda', name: 'Honda', logo: '🏍️', banner: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'canon', name: 'Canon', logo: '📷', banner: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'dell', name: 'Dell', logo: '💻', banner: 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'hp', name: 'HP', logo: '📠', banner: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&q=80&w=1200' },
+  { id: 'zara', name: 'Zara', logo: '🧥', banner: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&q=80&w=1200' },
 ];
+
+const getRandomBrand = () => BRANDS[Math.floor(Math.random() * BRANDS.length)];
 
 // Helper to generate products for categories
 const generateCategoryProducts = (catId: string, catName: string, prefix: string, count: number, basePrice: number, images: string[]): Product[] => {
-  return Array.from({ length: count }).map((_, i) => ({
-    id: `${prefix}-${i + 1}`,
-    name: `${catName} Item ${i + 1} - Premium Edition`,
-    price: basePrice + (i * 12.5),
-    oldPrice: (basePrice + (i * 12.5)) * 1.4,
-    image: images[i % images.length],
-    category: catName,
-    rating: 4 + (i % 2),
-    reviews: 10 + (i * 5),
-    tag: i % 3 === 0 ? 'NEW' : (i % 5 === 0 ? 'HOT' : undefined)
-  }));
+  return Array.from({ length: count }).map((_, i) => {
+    const brand = getRandomBrand();
+    return {
+      id: `${prefix}-${i + 1}`,
+      name: `${catName} Item ${i + 1} - ${brand.name} Edition`,
+      price: basePrice + (i * 12.5),
+      oldPrice: (basePrice + (i * 12.5)) * 1.4,
+      image: images[i % images.length],
+      category: catName,
+      brandId: brand.id,
+      brandName: brand.name,
+      rating: 4 + (i % 2),
+      reviews: 10 + (i * 5),
+      tag: i % 3 === 0 ? 'NEW' : (i % 5 === 0 ? 'HOT' : undefined)
+    };
+  });
 };
 
 export const WOMEN_PRODUCTS = generateCategoryProducts('women', 'Women Clothing', 'w', 12, 45, [
@@ -101,19 +108,19 @@ export const HOME_PRODUCTS = generateCategoryProducts('home', 'Home Improvement'
 ]);
 
 export const FLASH_SALE_PRODUCTS: Product[] = [
-  { id: 'fs1', name: 'Premium Wireless Headphones ANC', price: 129.00, oldPrice: 249.00, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400', category: 'Electronics', rating: 5, reviews: 120, tag: 'HOT', soldCount: 45, totalStock: 50, isFlashSale: true },
-  { id: 'fs2', name: 'Minimalist Wood Wrist Watch', price: 45.00, oldPrice: 89.00, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=400', category: 'Accessories', rating: 4, reviews: 85, tag: '50% OFF', soldCount: 78, totalStock: 100, isFlashSale: true },
-  { id: 'fs3', name: 'Smart Home Hub v3', price: 199.00, oldPrice: 299.00, image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=400', category: 'Smart Home', rating: 5, reviews: 210, tag: 'NEW', soldCount: 12, totalStock: 30, isFlashSale: true },
-  { id: 'fs4', name: 'Ergonomic Gaming Chair', price: 150.00, oldPrice: 320.00, image: 'https://images.unsplash.com/photo-1598550476439-6847785fce6c?auto=format&fit=crop&q=80&w=400', category: 'Furniture', rating: 4, reviews: 45, tag: 'DEAL', soldCount: 22, totalStock: 25, isFlashSale: true },
-  { id: 'fs5', name: '4K Ultra HD Dash Cam', price: 65.00, oldPrice: 120.00, image: 'https://images.unsplash.com/photo-1549233861-ce6e3fba09d7?auto=format&fit=crop&q=80&w=400', category: 'Automobile', rating: 4, reviews: 30, tag: 'FLASH', soldCount: 95, totalStock: 100, isFlashSale: true },
-  { id: 'fs6', name: 'Portable Solar Power Bank', price: 35.00, oldPrice: 60.00, image: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400', category: 'Gadgets', rating: 5, reviews: 56, tag: 'ECO', soldCount: 140, totalStock: 150, isFlashSale: true },
+  { id: 'fs1', name: 'Premium Wireless Headphones ANC', price: 129.00, oldPrice: 249.00, image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400', category: 'Electronics', brandId: 'sony', brandName: 'Sony', rating: 5, reviews: 120, tag: 'HOT', soldCount: 45, totalStock: 50, isFlashSale: true },
+  { id: 'fs2', name: 'Minimalist Wood Wrist Watch', price: 45.00, oldPrice: 89.00, image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=400', category: 'Accessories', brandId: 'apple', brandName: 'Apple', rating: 4, reviews: 85, tag: '50% OFF', soldCount: 78, totalStock: 100, isFlashSale: true },
+  { id: 'fs3', name: 'Smart Home Hub v3', price: 199.00, oldPrice: 299.00, image: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&q=80&w=400', category: 'Smart Home', brandId: 'samsung', brandName: 'Samsung', rating: 5, reviews: 210, tag: 'NEW', soldCount: 12, totalStock: 30, isFlashSale: true },
+  { id: 'fs4', name: 'Ergonomic Gaming Chair', price: 150.00, oldPrice: 320.00, image: 'https://images.unsplash.com/photo-1598550476439-6847785fce6c?auto=format&fit=crop&q=80&w=400', category: 'Furniture', brandId: 'adidas', brandName: 'Adidas', rating: 4, reviews: 45, tag: 'DEAL', soldCount: 22, totalStock: 25, isFlashSale: true },
+  { id: 'fs5', name: '4K Ultra HD Dash Cam', price: 65.00, oldPrice: 120.00, image: 'https://images.unsplash.com/photo-1549233861-ce6e3fba09d7?auto=format&fit=crop&q=80&w=400', category: 'Automobile', brandId: 'toyota', brandName: 'Toyota', rating: 4, reviews: 30, tag: 'FLASH', soldCount: 95, totalStock: 100, isFlashSale: true },
+  { id: 'fs6', name: 'Portable Solar Power Bank', price: 35.00, oldPrice: 60.00, image: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400', category: 'Gadgets', brandId: 'hp', brandName: 'HP', rating: 5, reviews: 56, tag: 'ECO', soldCount: 140, totalStock: 150, isFlashSale: true },
 ];
 
 export const DIGITAL_PRODUCTS: Product[] = [
-  { id: 'd1', name: 'Netflix Premium 4K UHD Subscription (1 Month)', price: 15.99, image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=400', category: 'Subscription', rating: 5, reviews: 250, tag: 'DIGITAL' },
-  { id: 'd2', name: 'Spotify Family Premium 12 Month Code', price: 99.00, image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400', category: 'Music', rating: 4, reviews: 180, tag: 'INSTANT' },
-  { id: 'd3', name: 'Amazon Prime Gift Card $50 Value', price: 50.00, image: 'https://images.unsplash.com/photo-1523474253046-2cd2c78a9db1?auto=format&fit=crop&q=80&w=400', category: 'Card', rating: 5, reviews: 95 },
-  { id: 'd4', name: 'Steam Wallet Card Global Key', price: 20.00, image: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&q=80&w=400', category: 'Gaming', rating: 4, reviews: 320 },
+  { id: 'd1', name: 'Netflix Premium 4K UHD Subscription (1 Month)', price: 15.99, image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=400', category: 'Subscription', brandId: 'sony', brandName: 'Sony', rating: 5, reviews: 250, tag: 'DIGITAL' },
+  { id: 'd2', name: 'Spotify Family Premium 12 Month Code', price: 99.00, image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400', category: 'Music', brandId: 'sony', brandName: 'Sony', rating: 4, reviews: 180, tag: 'INSTANT' },
+  { id: 'd3', name: 'Amazon Prime Gift Card $50 Value', price: 50.00, image: 'https://images.unsplash.com/photo-1523474253046-2cd2c78a9db1?auto=format&fit=crop&q=80&w=400', category: 'Card', brandId: 'apple', brandName: 'Apple', rating: 5, reviews: 95 },
+  { id: 'd4', name: 'Steam Wallet Card Global Key', price: 20.00, image: 'https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&q=80&w=400', category: 'Gaming', brandId: 'sony', brandName: 'Sony', rating: 4, reviews: 320 },
 ];
 
 export const ALL_PRODUCTS: Product[] = [
