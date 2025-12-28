@@ -1,10 +1,12 @@
 
 import React, { useState } from 'react';
-import { Search, ShoppingCart, User, Menu, Phone } from 'lucide-react';
+import { Search, ShoppingCart, User, Menu, Phone, ChevronDown, Shield, HelpCircle, Sparkles, Zap } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
+import { CATEGORIES, BRANDS } from '../constants';
 
 const Header: React.FC = () => {
   const [search, setSearch] = useState('');
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -40,12 +42,12 @@ const Header: React.FC = () => {
         <form onSubmit={handleSearch} className="flex-1 max-w-2xl relative lg:block hidden">
           <input
             type="text"
-            placeholder="I am shopping for..."
+            placeholder="Search for premium products..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full border rounded-full py-2.5 px-6 outline-none focus:border-blue-500 transition-all text-sm bg-gray-50"
+            className="w-full border-2 border-gray-100 rounded-2xl py-2.5 px-6 outline-none focus:border-blue-500 transition-all text-sm bg-gray-50/50"
           />
-          <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600">
+          <button className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-blue-600 transition-colors">
             <Search size={20} />
           </button>
         </form>
@@ -69,22 +71,104 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      {/* Navigation Bar */}
-      <nav className="bg-white border-t lg:block hidden">
-        <div className="container mx-auto px-4 flex items-center h-12">
-          <button className="flex items-center gap-2 bg-gray-100 h-full px-4 text-sm font-bold border-r hover:bg-gray-200 transition-colors">
-            <Menu size={18} />
-          </button>
-          <div className="flex items-center gap-8 ml-6 text-sm font-medium text-gray-700">
-            <Link to="/" className="hover:text-blue-600 transition-colors">Home</Link>
-            <Link to="/flash-sale" className="hover:text-blue-600 transition-colors text-red-600 font-bold">Flash Sale</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Blogs</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Brands</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Categories</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Sellers</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Contact us</Link>
-            <Link to="/products" className="hover:text-blue-600 transition-colors">Preorder</Link>
+      {/* Modern Navigation Bar */}
+      <nav className="bg-white border-t lg:block hidden relative">
+        <div className="container mx-auto px-4 flex items-center justify-between h-14">
+          
+          {/* Left Navigation Group */}
+          <div className="flex items-center h-full gap-1">
+            <Link to="/" className="h-full flex items-center px-4 text-sm font-black text-gray-800 hover:text-blue-600 transition-colors">
+              Home
+            </Link>
+            
+            <Link to="/flash-sale" className="h-full flex items-center px-4 text-sm font-black text-red-600 hover:text-red-700 transition-colors flex items-center gap-2 group">
+              <Zap size={14} className="fill-red-600 group-hover:animate-pulse" /> Flash Sale
+            </Link>
+
+            {/* Categories Dropdown Trigger */}
+            <div 
+              className="h-full relative group"
+              onMouseEnter={() => setActiveDropdown('categories')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'categories' ? 'text-blue-600' : 'text-gray-800'}`}>
+                Categories <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'categories' ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Categories Mega Dropdown */}
+              <div className={`absolute top-full left-0 w-[600px] bg-white shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top overflow-hidden z-[100] ${activeDropdown === 'categories' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                 <div className="p-8 grid grid-cols-2 gap-6 bg-white/80 backdrop-blur-xl">
+                   {CATEGORIES.map(cat => (
+                     <Link 
+                       key={cat.id} 
+                       to="/products" 
+                       className="flex items-center gap-4 p-4 rounded-2xl hover:bg-blue-50 transition-all group/item"
+                       onClick={() => setActiveDropdown(null)}
+                     >
+                       <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-2xl group-hover/item:bg-white group-hover/item:shadow-lg transition-all">
+                         {cat.icon}
+                       </div>
+                       <div>
+                         <span className="block text-sm font-black text-gray-800 uppercase tracking-tighter">{cat.name}</span>
+                         <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest group-hover/item:text-blue-500 transition-colors">Explore Collection</span>
+                       </div>
+                     </Link>
+                   ))}
+                 </div>
+                 <div className="bg-gray-50 p-4 text-center border-t">
+                    <Link to="/products" className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] hover:underline">View All Categories</Link>
+                 </div>
+              </div>
+            </div>
+
+            {/* Brands Dropdown Trigger */}
+            <div 
+              className="h-full relative group"
+              onMouseEnter={() => setActiveDropdown('brands')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button className={`h-full flex items-center px-5 text-sm font-black transition-colors flex items-center gap-1.5 ${activeDropdown === 'brands' ? 'text-blue-600' : 'text-gray-800'}`}>
+                Brands <ChevronDown size={14} className={`transition-transform duration-300 ${activeDropdown === 'brands' ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Brands Mega Dropdown */}
+              <div className={`absolute top-full left-0 w-[450px] bg-white shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top overflow-hidden z-[100] ${activeDropdown === 'brands' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                 <div className="p-8 grid grid-cols-3 gap-4 bg-white/80 backdrop-blur-xl">
+                   {BRANDS.map(brand => (
+                     <Link 
+                       key={brand.id} 
+                       to="/products" 
+                       className="flex flex-col items-center justify-center p-4 rounded-2xl border border-transparent hover:border-blue-100 hover:bg-blue-50 hover:shadow-inner transition-all group/brand"
+                       onClick={() => setActiveDropdown(null)}
+                     >
+                       <span className="text-3xl mb-2 grayscale group-hover/brand:grayscale-0 transition-all">{brand.logo}</span>
+                       <span className="text-[10px] font-black text-gray-600 group-hover/brand:text-blue-600 uppercase tracking-tighter">{brand.name}</span>
+                     </Link>
+                   ))}
+                 </div>
+                 <div className="bg-gray-900 p-4 text-center">
+                    <Link to="/products" className="text-[10px] font-black text-white uppercase tracking-[0.2em] hover:text-blue-400 transition-colors">Discover World-Class Brands</Link>
+                 </div>
+              </div>
+            </div>
           </div>
+
+          {/* Right Navigation Group */}
+          <div className="flex items-center h-full gap-4 pr-2">
+            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
+              <Shield size={14} className="text-green-500" /> Order Protection
+            </Link>
+            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
+              <HelpCircle size={14} className="text-blue-400" /> Help Center
+            </Link>
+            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
+              <Zap size={14} className="text-orange-400" /> Preorder
+            </Link>
+            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-blue-600 hover:text-gray-900 transition-colors uppercase tracking-widest">
+              <Sparkles size={14} /> Featured Selections
+            </Link>
+          </div>
+
         </div>
       </nav>
     </header>

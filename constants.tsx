@@ -12,6 +12,21 @@ export const CATEGORIES: Category[] = [
   { id: 'home', name: 'Home Improvement', image: 'https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&q=80&w=200', icon: '🛠️' },
 ];
 
+export const BRANDS = [
+  { id: 'b1', name: 'Apple', logo: '🍎' },
+  { id: 'b2', name: 'Samsung', logo: '📱' },
+  { id: 'b3', name: 'Nike', logo: '👟' },
+  { id: 'b4', name: 'Adidas', logo: '🎽' },
+  { id: 'b5', name: 'Sony', logo: '🎮' },
+  { id: 'b6', name: 'LG', logo: '📺' },
+  { id: 'b7', name: 'Toyota', logo: '🚘' },
+  { id: 'b8', name: 'Honda', logo: '🏍️' },
+  { id: 'b9', name: 'Canon', logo: '📷' },
+  { id: 'b10', name: 'Dell', logo: '💻' },
+  { id: 'b11', name: 'HP', logo: '📠' },
+  { id: 'b12', name: 'Zara', logo: '🧥' },
+];
+
 // Helper to generate products for categories
 const generateCategoryProducts = (catId: string, catName: string, prefix: string, count: number, basePrice: number, images: string[]): Product[] => {
   return Array.from({ length: count }).map((_, i) => ({
