@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, ShoppingCart, User, Phone, ChevronDown, Shield, HelpCircle, Sparkles, Zap, Lock, Truck, RefreshCcw, MessageSquare, Info } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -36,8 +35,8 @@ const Header: React.FC = () => {
             A
           </div>
           <div className="leading-tight">
-            <span className="text-sm font-bold block">THE CORE</span>
-            <span className="text-lg font-black text-blue-600 tracking-tighter">Active eCommerce</span>
+            <span className="text-sm font-bold block text-gray-400">THE CORE</span>
+            <span className="text-lg font-black text-blue-600 tracking-tighter">Alijali eCommerce</span>
           </div>
         </Link>
 

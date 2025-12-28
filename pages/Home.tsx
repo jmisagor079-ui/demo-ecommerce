@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState, useMemo } from 'react';
 import { ChevronRight, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -72,10 +71,10 @@ const Home: React.FC = () => {
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
             <div className="absolute bottom-12 left-8 z-10">
-              <span className="text-blue-400 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">New Season 2024</span>
+              <span className="text-blue-400 font-black text-[10px] uppercase tracking-[0.3em] mb-4 block">New Season 2025</span>
               <h1 className="text-5xl font-black text-white leading-none uppercase tracking-tighter drop-shadow-2xl italic">
                 Unleash<br/>
-                <span className="text-blue-500">The Style</span>
+                <span className="text-blue-500">The Alijali Style</span>
               </h1>
               <button onClick={() => navigate('/products')} className="mt-6 bg-white text-black px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-lg active:scale-95">
                 Explore Now
@@ -133,7 +132,7 @@ const Home: React.FC = () => {
                 <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000" />
               </div>
               <div className="relative z-10 h-full flex flex-col justify-center max-w-sm">
-                <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Elite Collection</span>
+                <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Alijali Elite Collection</span>
                 <h2 className="text-4xl font-black mb-6 uppercase tracking-tighter italic">Pro Gear <br/> Series X</h2>
                 <div className="flex items-center gap-4">
                   <button className="bg-blue-600 text-white px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
@@ -213,9 +212,9 @@ const Home: React.FC = () => {
               <span className="text-blue-500 font-black text-[10px] uppercase tracking-[0.5em] mb-6 block">Seller Portal</span>
               <h2 className="text-5xl lg:text-7xl font-black mb-8 tracking-tighter uppercase leading-[0.9] italic">
                 Launch Your <br/>
-                <span className="text-blue-600 underline underline-offset-[16px] decoration-4">Business</span>
+                <span className="text-blue-600 underline underline-offset-[16px] decoration-4">Business at Alijali</span>
               </h2>
-              <p className="text-gray-500 max-w-lg mb-12 text-sm lg:text-lg leading-relaxed font-medium">Join 50,000+ top-tier merchants globally. Get specialized support, real-time analytics, and access to a massive audience of premium buyers.</p>
+              <p className="text-gray-500 max-w-lg mb-12 text-sm lg:text-lg leading-relaxed font-medium">Join 50,000+ top-tier merchants globally. Get specialized support, real-time analytics, and access to a massive audience of premium buyers on Alijali eCommerce.</p>
               <button onClick={() => navigate('/products')} className="bg-blue-600 text-white font-black px-12 py-6 rounded-3xl hover:bg-white hover:text-black transition-all flex items-center gap-4 shadow-2xl uppercase tracking-widest text-xs active:scale-95">
                 Register Store <ArrowRight size={22} />
               </button>

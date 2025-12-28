@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { BRANDS } from '../constants';
 import { Link } from 'react-router-dom';
@@ -21,7 +20,7 @@ const Brands: React.FC = () => {
             Global <span className="text-blue-600">Partners</span>
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto mb-12 font-medium">
-            Explore premium products from the world's most trusted manufacturers and designers.
+            Explore premium products from the world's most trusted manufacturers and designers at Alijali.
           </p>
           
           <div className="max-w-xl mx-auto relative group">
@@ -73,7 +72,7 @@ const Brands: React.FC = () => {
           <div className="absolute top-0 right-0 w-1/2 h-full bg-black/10 -skew-x-12 transform origin-right"></div>
           <div className="relative z-10 max-w-lg">
             <h2 className="text-4xl font-black mb-6 uppercase tracking-tighter italic">Premium Brand <br/> Partnership</h2>
-            <p className="text-blue-100 mb-10 font-medium">Join our global network of top-tier sellers. Reach millions of buyers and scale your brand with Active eCommerce.</p>
+            <p className="text-blue-100 mb-10 font-medium">Join our global network of top-tier sellers. Reach millions of buyers and scale your brand with Alijali eCommerce.</p>
             <button className="bg-white text-blue-600 px-10 py-5 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-black hover:text-white transition-all shadow-xl active:scale-95">
               Contact Sales
             </button>

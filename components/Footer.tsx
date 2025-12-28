@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Facebook, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
 
@@ -15,10 +14,10 @@ const Footer: React.FC = () => {
               </div>
               <div className="leading-tight">
                 <span className="text-[10px] font-bold block text-white/50">THE CORE</span>
-                <span className="text-lg font-black text-white tracking-tighter">Active eCommerce</span>
+                <span className="text-lg font-black text-white tracking-tighter">Alijali eCommerce</span>
               </div>
             </div>
-            <p className="text-sm mb-6">Complete system for your eCommerce business</p>
+            <p className="text-sm mb-6">Complete ecosystem for your eCommerce success.</p>
           </div>
 
           <div className="flex flex-col items-start lg:items-end gap-6">
@@ -47,12 +46,12 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Quick Links</h4>
             <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Support Policy Page</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Return Policy Page</a></li>
+              <li><a href="#" className="hover:text-blue-500 transition-colors">Support Policy</a></li>
+              <li><a href="#" className="hover:text-blue-500 transition-colors">Return Policy</a></li>
               <li><a href="#" className="hover:text-blue-500 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Privacy Policy Page</a></li>
+              <li><a href="#" className="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
               <li><a href="#" className="hover:text-blue-500 transition-colors">Seller Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Term Conditions Page</a></li>
+              <li><a href="#" className="hover:text-blue-500 transition-colors">Terms & Conditions</a></li>
             </ul>
           </div>
           <div>
@@ -60,7 +59,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4 text-sm">
               <li>
                 <span className="block text-gray-500 mb-1">Address</span>
-                <span className="text-white">Demo</span>
+                <span className="text-white">Alijali Global HQ</span>
               </li>
               <li>
                 <span className="block text-gray-500 mb-1">Phone</span>
@@ -68,7 +67,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <span className="block text-gray-500 mb-1">Email</span>
-                <span className="text-blue-500">yourmail@email.com</span>
+                <span className="text-blue-500">support@alijali.com</span>
               </li>
             </ul>
           </div>
@@ -79,7 +78,7 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-blue-500 transition-colors">Order History</a></li>
               <li><a href="#" className="hover:text-blue-500 transition-colors">My Wishlist</a></li>
               <li><a href="#" className="hover:text-blue-500 transition-colors">Track Order</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Be an affiliate partner</a></li>
+              <li><a href="#" className="hover:text-blue-500 transition-colors">Affiliate Partner</a></li>
             </ul>
           </div>
           <div>
@@ -90,21 +89,21 @@ const Footer: React.FC = () => {
               <li><a href="#" className="hover:text-blue-500 transition-colors">Download Seller App</a></li>
             </ul>
             <div className="mt-8">
-              <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Delivery Boy</h4>
+              <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Delivery Team</h4>
               <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Login to Delivery Boy Panel</a></li>
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Download Delivery Boy App</a></li>
+                <li><a href="#" className="hover:text-blue-500 transition-colors">Login to Delivery Panel</a></li>
+                <li><a href="#" className="hover:text-blue-500 transition-colors">Download Courier App</a></li>
               </ul>
             </div>
           </div>
           <div>
-            {/* Empty for spacing or secondary info */}
+            {/* Empty for spacing */}
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs">Active eCommerce CMS 2021</p>
+          <p className="text-xs">Alijali eCommerce CMS 2025</p>
           <div className="flex items-center gap-4">
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-4 opacity-70" alt="paypal" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3 opacity-70" alt="visa" />

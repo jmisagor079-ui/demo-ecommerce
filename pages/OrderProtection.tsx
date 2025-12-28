@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Shield, ShieldCheck, Lock, RefreshCcw, Truck, Search, CheckCircle2, AlertCircle } from 'lucide-react';
 
@@ -18,7 +17,7 @@ const OrderProtection: React.FC = () => {
             Order <span className="text-emerald-300">Protection</span>
           </h1>
           <p className="text-white/80 text-lg max-w-2xl mx-auto font-medium">
-            Shop with total confidence. Our multi-layer protection system ensures every transaction is 100% secure from checkout to delivery.
+            Shop with total confidence. Our multi-layer protection system ensures every transaction is 100% secure from checkout to delivery at Alijali.
           </p>
         </div>
       </div>
@@ -49,7 +48,7 @@ const OrderProtection: React.FC = () => {
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl lg:text-4xl font-black mb-6 uppercase tracking-tighter italic">Coverage <br/> Tracker</h2>
-              <p className="text-gray-400 text-sm mb-8 font-medium">Enter your order ID to see the specific protection status and warranty coverage for your purchase.</p>
+              <p className="text-gray-400 text-sm mb-8 font-medium">Enter your order ID to see the specific protection status and warranty coverage for your Alijali purchase.</p>
               <div className="relative group">
                 <input 
                   type="text" 
@@ -93,7 +92,7 @@ const OrderProtection: React.FC = () => {
             { q: "What happens if my package is stolen?", a: "Every order is insured. If tracking confirms delivery but you haven't received it, our delivery shield team initiates a claim with the courier within 24 hours." },
             { q: "Is my payment information stored?", a: "Never. We use tokenized payment processing, meaning your card details never touch our servers. We only receive a secure authorization from your bank." },
             { q: "How do I start a dispute?", a: "Simple. Go to your Order History, click 'Report Issue', and our protection team will mediate between you and the seller to resolve it within 48 hours." },
-            { q: "Does coverage apply globally?", a: "Yes. Whether you are ordering locally or across continents, Active eCommerce Order Protection travels with your package." }
+            { q: "Does coverage apply globally?", a: "Yes. Whether you are ordering locally or across continents, Alijali eCommerce Order Protection travels with your package." }
           ].map((faq, i) => (
             <div key={i} className="p-8 rounded-3xl bg-gray-50 border border-gray-100 hover:bg-white hover:shadow-xl transition-all group">
               <h4 className="text-sm font-black text-gray-900 uppercase tracking-tight mb-4 group-hover:text-blue-600">{faq.q}</h4>
