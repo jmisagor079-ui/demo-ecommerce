@@ -116,6 +116,13 @@ export const FLASH_SALE_PRODUCTS: Product[] = [
   { id: 'fs6', name: 'Portable Solar Power Bank', price: 35.00, oldPrice: 60.00, image: 'https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&q=80&w=400', category: 'Gadgets', brandId: 'hp', brandName: 'HP', rating: 5, reviews: 56, tag: 'ECO', soldCount: 140, totalStock: 150, isFlashSale: true },
 ];
 
+export const PREORDER_PRODUCTS: Product[] = [
+  { id: 'pre1', name: 'NextGen VR Pro Headset', price: 899.00, image: 'https://images.unsplash.com/photo-1592477976562-f556200fd682?auto=format&fit=crop&q=80&w=400', category: 'Electronics', brandId: 'apple', brandName: 'Apple', rating: 5, reviews: 0, tag: 'PREORDER' },
+  { id: 'pre2', name: 'Ultra-Slim Folding Laptop 2025', price: 1499.00, image: 'https://images.unsplash.com/photo-1517336714460-d130ed271c0e?auto=format&fit=crop&q=80&w=400', category: 'Electronics', brandId: 'dell', brandName: 'Dell', rating: 5, reviews: 0, tag: 'FUTURE' },
+  { id: 'pre3', name: 'Solar Powered Smart Watch v2', price: 299.00, image: 'https://images.unsplash.com/photo-1508685096489-77a5ad2ba979?auto=format&fit=crop&q=80&w=400', category: 'Accessories', brandId: 'sony', brandName: 'Sony', rating: 4, reviews: 0, tag: 'NEW DROP' },
+  { id: 'pre4', name: 'Hybrid Electric Scooter Elite', price: 1250.00, image: 'https://images.unsplash.com/photo-1605648916319-cf082f7524a1?auto=format&fit=crop&q=80&w=400', category: 'Automobile', brandId: 'toyota', brandName: 'Toyota', rating: 5, reviews: 0, tag: 'EXCLUSIVE' },
+];
+
 export const DIGITAL_PRODUCTS: Product[] = [
   { id: 'd1', name: 'Netflix Premium 4K UHD Subscription (1 Month)', price: 15.99, image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?auto=format&fit=crop&q=80&w=400', category: 'Subscription', brandId: 'sony', brandName: 'Sony', rating: 5, reviews: 250, tag: 'DIGITAL' },
   { id: 'd2', name: 'Spotify Family Premium 12 Month Code', price: 99.00, image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?auto=format&fit=crop&q=80&w=400', category: 'Music', brandId: 'sony', brandName: 'Sony', rating: 4, reviews: 180, tag: 'INSTANT' },
@@ -133,7 +140,8 @@ export const ALL_PRODUCTS: Product[] = [
   ...KIDS_PRODUCTS,
   ...JEWELRY_PRODUCTS,
   ...HOME_PRODUCTS,
-  ...DIGITAL_PRODUCTS
+  ...DIGITAL_PRODUCTS,
+  ...PREORDER_PRODUCTS
 ];
 
 export const FEATURED_PRODUCTS: Product[] = ALL_PRODUCTS.slice(0, 12);

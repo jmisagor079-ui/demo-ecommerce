@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Search, ShoppingCart, User, Menu, Phone, ChevronDown, Shield, HelpCircle, Sparkles, Zap } from 'lucide-react';
+import { Search, ShoppingCart, User, Phone, ChevronDown, Shield, HelpCircle, Sparkles, Zap, Lock, Truck, RefreshCcw, MessageSquare, Info } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 import { CATEGORIES, BRANDS } from '../constants';
 
@@ -13,6 +13,8 @@ const Header: React.FC = () => {
     e.preventDefault();
     if (search.trim()) navigate('/products');
   };
+
+  const closeDropdown = () => setActiveDropdown(null);
 
   return (
     <header className="bg-white border-b sticky top-0 z-50">
@@ -87,7 +89,7 @@ const Header: React.FC = () => {
 
             {/* Categories Dropdown Trigger */}
             <div 
-              className="h-full relative group"
+              className="h-full relative"
               onMouseEnter={() => setActiveDropdown('categories')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -103,7 +105,7 @@ const Header: React.FC = () => {
                        key={cat.id} 
                        to="/products" 
                        className="flex items-center gap-4 p-4 rounded-2xl hover:bg-blue-50 transition-all group/item"
-                       onClick={() => setActiveDropdown(null)}
+                       onClick={closeDropdown}
                      >
                        <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center text-2xl group-hover/item:bg-white group-hover/item:shadow-lg transition-all">
                          {cat.icon}
@@ -115,15 +117,12 @@ const Header: React.FC = () => {
                      </Link>
                    ))}
                  </div>
-                 <div className="bg-gray-50 p-4 text-center border-t">
-                    <Link to="/products" className="text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] hover:underline" onClick={() => setActiveDropdown(null)}>View All Categories</Link>
-                 </div>
               </div>
             </div>
 
             {/* Brands Dropdown Trigger */}
             <div 
-              className="h-full relative group"
+              className="h-full relative"
               onMouseEnter={() => setActiveDropdown('brands')}
               onMouseLeave={() => setActiveDropdown(null)}
             >
@@ -139,32 +138,121 @@ const Header: React.FC = () => {
                        key={brand.id} 
                        to={`/brand/${brand.id}`} 
                        className="flex flex-col items-center justify-center p-4 rounded-2xl border border-transparent hover:border-blue-100 hover:bg-blue-50 hover:shadow-inner transition-all group/brand"
-                       onClick={() => setActiveDropdown(null)}
+                       onClick={closeDropdown}
                      >
                        <span className="text-3xl mb-2 grayscale group-hover/brand:grayscale-0 transition-all">{brand.logo}</span>
                        <span className="text-[10px] font-black text-gray-600 group-hover/brand:text-blue-600 uppercase tracking-tighter">{brand.name}</span>
                      </Link>
                    ))}
                  </div>
-                 <div className="bg-gray-900 p-4 text-center">
-                    <Link to="/brands" className="text-[10px] font-black text-white uppercase tracking-[0.2em] hover:text-blue-400 transition-colors" onClick={() => setActiveDropdown(null)}>Discover All World-Class Brands</Link>
-                 </div>
               </div>
             </div>
           </div>
 
           {/* Right Navigation Group */}
-          <div className="flex items-center h-full gap-4 pr-2">
-            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
-              <Shield size={14} className="text-green-500" /> Order Protection
-            </Link>
-            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
-              <HelpCircle size={14} className="text-blue-400" /> Help Center
-            </Link>
-            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-gray-500 hover:text-blue-600 transition-colors uppercase tracking-widest border-r pr-4">
-              <Zap size={14} className="text-orange-400" /> Preorder
-            </Link>
-            <Link to="/products" className="flex items-center gap-2 text-[10px] font-black text-blue-600 hover:text-gray-900 transition-colors uppercase tracking-widest">
+          <div className="flex items-center h-full gap-2">
+            
+            {/* Order Protection Dropdown */}
+            <div 
+              className="h-full relative"
+              onMouseEnter={() => setActiveDropdown('protection')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                onClick={() => { navigate('/order-protection'); closeDropdown(); }}
+                className={`h-full flex items-center gap-2 px-4 text-[10px] font-black uppercase tracking-widest transition-colors ${activeDropdown === 'protection' ? 'text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}
+              >
+                <Shield size={14} className={activeDropdown === 'protection' ? 'text-blue-600' : 'text-green-500'} /> Order Protection
+              </button>
+              <div className={`absolute top-full right-0 w-[280px] bg-white/95 backdrop-blur-xl shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top z-[100] ${activeDropdown === 'protection' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                <div className="p-6 space-y-4">
+                  <Link to="/order-protection" onClick={closeDropdown} className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-colors group">
+                    <Lock size={16} className="text-blue-500 mt-1" />
+                    <div>
+                      <h4 className="text-[10px] font-black uppercase">Secure Payment</h4>
+                      <p className="text-[9px] text-gray-400 font-bold uppercase mt-1">100% encrypted checkout</p>
+                    </div>
+                  </Link>
+                  <Link to="/order-protection" onClick={closeDropdown} className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-colors group">
+                    <RefreshCcw size={16} className="text-green-500 mt-1" />
+                    <div>
+                      <h4 className="text-[10px] font-black uppercase">Money Back</h4>
+                      <p className="text-[9px] text-gray-400 font-bold uppercase mt-1">30-day return policy</p>
+                    </div>
+                  </Link>
+                  <Link to="/order-protection" onClick={closeDropdown} className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50 transition-colors group">
+                    <Shield size={16} className="text-purple-500 mt-1" />
+                    <div>
+                      <h4 className="text-[10px] font-black uppercase">Buyer Shield</h4>
+                      <p className="text-[9px] text-gray-400 font-bold uppercase mt-1">Full dispute coverage</p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Help Center Dropdown */}
+            <div 
+              className="h-full relative"
+              onMouseEnter={() => setActiveDropdown('help')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                onClick={() => { navigate('/help-center'); closeDropdown(); }}
+                className={`h-full flex items-center gap-2 px-4 text-[10px] font-black uppercase tracking-widest transition-colors ${activeDropdown === 'help' ? 'text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}
+              >
+                <HelpCircle size={14} className={activeDropdown === 'help' ? 'text-blue-600' : 'text-blue-400'} /> Help Center
+              </button>
+              <div className={`absolute top-full right-0 w-[240px] bg-white/95 backdrop-blur-xl shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top z-[100] ${activeDropdown === 'help' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                <div className="p-4 flex flex-col gap-1">
+                  <Link to="/help-center" onClick={closeDropdown} className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:text-blue-600 transition-all">
+                    <Truck size={14} /> Track My Order
+                  </Link>
+                  <Link to="/help-center" onClick={closeDropdown} className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:text-blue-600 transition-all">
+                    <MessageSquare size={14} /> Live Support
+                  </Link>
+                  <Link to="/help-center" onClick={closeDropdown} className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:text-blue-600 transition-all">
+                    <Info size={14} /> Return Center
+                  </Link>
+                  <Link to="/help-center" onClick={closeDropdown} className="flex items-center gap-3 p-3 rounded-xl hover:bg-blue-50 text-[10px] font-black uppercase tracking-widest text-gray-600 hover:text-blue-600 transition-all">
+                    <HelpCircle size={14} /> Search FAQs
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Preorder Dropdown */}
+            <div 
+              className="h-full relative"
+              onMouseEnter={() => setActiveDropdown('preorder')}
+              onMouseLeave={() => setActiveDropdown(null)}
+            >
+              <button 
+                onClick={() => { navigate('/preorder'); closeDropdown(); }}
+                className={`h-full flex items-center gap-2 px-4 text-[10px] font-black uppercase tracking-widest transition-colors ${activeDropdown === 'preorder' ? 'text-blue-600' : 'text-gray-500 hover:text-blue-600'}`}
+              >
+                <Zap size={14} className={activeDropdown === 'preorder' ? 'text-orange-600' : 'text-orange-400'} /> Preorder
+              </button>
+              <div className={`absolute top-full right-0 w-[320px] bg-white/95 backdrop-blur-xl shadow-2xl rounded-b-[2rem] border-t-2 border-blue-600 transition-all duration-300 transform origin-top z-[100] ${activeDropdown === 'preorder' ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'}`}>
+                <div className="p-6">
+                  <div className="mb-4">
+                    <h4 className="text-[10px] font-black uppercase text-blue-600 mb-2">Upcoming Drops</h4>
+                    <Link to="/preorder" onClick={closeDropdown} className="block aspect-[16/9] rounded-2xl bg-gray-100 overflow-hidden relative group/img">
+                      <img src="https://images.unsplash.com/photo-1605648916319-cf082f7524a1?auto=format&fit=crop&q=80&w=400" className="w-full h-full object-cover group-hover/img:scale-110 transition-transform duration-700" alt="next drop" />
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover/img:opacity-100 transition-opacity">
+                         <span className="text-[8px] font-black text-white border border-white px-3 py-1 rounded-full uppercase">Explore Future Tech</span>
+                      </div>
+                    </Link>
+                  </div>
+                  <p className="text-[9px] text-gray-400 font-bold uppercase leading-relaxed mb-4">Secure early access to our exclusive winter collection at 15% discount.</p>
+                  <Link to="/preorder" onClick={closeDropdown} className="block text-center bg-gray-900 text-white py-3 rounded-xl text-[10px] font-black uppercase tracking-widest hover:bg-blue-600 transition-colors">
+                    View Preorder List
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <Link to="/products" className="flex items-center gap-2 px-4 text-[10px] font-black text-blue-600 hover:text-gray-900 transition-colors uppercase tracking-widest">
               <Sparkles size={14} /> Featured Selections
             </Link>
           </div>
