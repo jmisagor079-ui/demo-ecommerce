@@ -12,6 +12,7 @@ import BrandDetail from './pages/BrandDetail';
 import OrderProtection from './pages/OrderProtection';
 import HelpCenter from './pages/HelpCenter';
 import Preorder from './pages/Preorder';
+import Checkout from './pages/Checkout';
 import { useEffect } from 'react';
 
 const App: React.FC = () => {
@@ -37,6 +38,7 @@ const App: React.FC = () => {
           <Route path="/order-protection" element={<OrderProtection />} />
           <Route path="/help-center" element={<HelpCenter />} />
           <Route path="/preorder" element={<Preorder />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
 

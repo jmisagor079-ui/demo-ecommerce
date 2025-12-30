@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Linkedin, Home as HomeIcon, ShoppingCart } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Home as HomeIcon, ShoppingCart, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -20,8 +20,40 @@ const Footer: React.FC = () => {
               </div>
             </div>
             <p className="text-base text-gray-500 font-medium leading-relaxed mb-8">
-              Empowering global trade through a verified, transparent, and high-efficiency B2B ecosystem. Sourcing made simple, secure, and fast.
+              Bangladesh's leading digital product bulk selling platform. Empowering resellers and businesses with instant digital inventory and global licenses.
             </p>
+            
+            {/* Contact Details Requested */}
+            <div className="space-y-4 mb-8">
+               <div className="flex items-center gap-3 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-[#ff6a00] group-hover:bg-[#ff6a00] group-hover:text-white transition-all">
+                     <Mail size={18} />
+                  </div>
+                  <div>
+                     <p className="text-[10px] font-black uppercase text-gray-600">Email Support</p>
+                     <p className="text-sm font-bold text-gray-300">support@buyingbd.com</p>
+                  </div>
+               </div>
+               <div className="flex items-center gap-3 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-[#2cb9b9] group-hover:bg-[#2cb9b9] group-hover:text-white transition-all">
+                     <Phone size={18} />
+                  </div>
+                  <div>
+                     <p className="text-[10px] font-black uppercase text-gray-600">Phone & WhatsApp</p>
+                     <p className="text-sm font-bold text-gray-300">+880 1744-212976</p>
+                  </div>
+               </div>
+               <div className="flex items-center gap-3 group">
+                  <div className="w-10 h-10 bg-white/5 rounded-xl flex items-center justify-center text-purple-500 group-hover:bg-purple-500 group-hover:text-white transition-all">
+                     <MapPin size={18} />
+                  </div>
+                  <div>
+                     <p className="text-[10px] font-black uppercase text-gray-600">Our Office</p>
+                     <p className="text-sm font-bold text-gray-300">Mirpur section 12, Block D, Dhaka 1216, Bangladesh</p>
+                  </div>
+               </div>
+            </div>
+
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Facebook size={20} /></a>
               <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Twitter size={20} /></a>
@@ -33,30 +65,30 @@ const Footer: React.FC = () => {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-20">
             <div>
-              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Platform</h4>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Reseller Center</h4>
               <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Trade Assurance</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Logistics Services</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Inspection Service</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Production Monitoring</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Bulk API Access</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Reseller Pricing</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">White Label Panels</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Credit Recharge</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Sourcing</h4>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Popular Keys</h4>
               <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Ready to Ship</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Verified Suppliers</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Apparel Sourcing</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Buyer Central</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Windows Retail</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Netflix Private</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Office 365</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Game Top-ups</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Support</h4>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Policies</h4>
               <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Report Abuse</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Submit RFQ</a></li>
-                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Global Logistics</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Refund Policy</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Anti-Ban Policy</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
@@ -65,13 +97,13 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-[11px] font-black uppercase tracking-widest text-gray-600">
-            &copy; 2025 Buying BD Global Ltd. All rights reserved. Trade smarter with verified manufacturers.
+            &copy; 2026-2017 Buying BD Global Ltd. All rights reserved. Registered Digital Sourcing Partner.
           </p>
           <div className="flex items-center gap-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Bkash_logo.png/320px-Bkash_logo.png" className="h-4" alt="bkash" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-4" alt="paypal" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3" alt="visa" />
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-6" alt="mastercard" />
-            <span className="text-[10px] font-black uppercase tracking-widest">PCI Secure</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-white">Verified Secure</span>
           </div>
         </div>
       </div>

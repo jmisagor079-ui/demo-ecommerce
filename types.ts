@@ -1,4 +1,9 @@
 
+export interface BulkTier {
+  minQuantity: number;
+  price: number;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -14,6 +19,10 @@ export interface Product {
   soldCount?: number;
   totalStock?: number;
   isFlashSale?: boolean;
+  isDigital?: boolean;
+  deliveryType?: 'Instant' | 'Manual' | '24h';
+  region?: 'Global' | 'BD Only' | 'US' | 'EU';
+  bulkTiers?: BulkTier[];
 }
 
 export interface Category {
