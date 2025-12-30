@@ -1,113 +1,77 @@
+
 import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Home as HomeIcon, ShoppingCart } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#1a1c23] text-gray-400 py-12">
+    <footer className="bg-[#1a1c23] text-gray-400 py-16">
       <div className="container mx-auto px-4">
         {/* Top Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
-          <div className="max-w-xs">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center text-white font-bold text-xl">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Shopify_logo.2.svg" className="w-6 h-6 invert" alt="logo" />
+        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 mb-20">
+          <div className="max-w-md">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-14 h-14 bg-[#2cb9b9]/10 rounded-2xl flex items-center justify-center border border-[#2cb9b9]/30 relative overflow-hidden">
+                <ShoppingCart className="text-[#2cb9b9]" size={28} />
+                <HomeIcon className="absolute top-2 text-[#ff4d00] fill-[#ff4d00]" size={18} />
               </div>
-              <div className="leading-tight">
-                <span className="text-[10px] font-bold block text-white/50">THE CORE</span>
-                <span className="text-lg font-black text-white tracking-tighter">Alijali eCommerce</span>
+              <div className="flex flex-col leading-none">
+                <span className="text-2xl font-[900] tracking-tighter text-gradient-buying italic">Buying</span>
+                <span className="text-3xl font-[1000] tracking-tighter text-gradient-bd italic ml-5 -mt-1">BD.com</span>
               </div>
             </div>
-            <p className="text-sm mb-6">Complete ecosystem for your eCommerce success.</p>
+            <p className="text-base text-gray-500 font-medium leading-relaxed mb-8">
+              Empowering global trade through a verified, transparent, and high-efficiency B2B ecosystem. Sourcing made simple, secure, and fast.
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Facebook size={20} /></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Twitter size={20} /></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Instagram size={20} /></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Youtube size={20} /></a>
+              <a href="#" className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-white hover:bg-[#ff6a00] transition-all hover:scale-110"><Linkedin size={20} /></a>
+            </div>
           </div>
 
-          <div className="flex flex-col items-start lg:items-end gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-20">
             <div>
-              <h4 className="text-white text-xs font-bold uppercase mb-4 tracking-widest">Follow Us</h4>
-              <div className="flex gap-3">
-                <a href="#" className="w-9 h-9 bg-[#3b5998] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"><Facebook size={18} /></a>
-                <a href="#" className="w-9 h-9 bg-black rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"><Twitter size={18} /></a>
-                <a href="#" className="w-9 h-9 bg-[#c13584] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"><Instagram size={18} /></a>
-                <a href="#" className="w-9 h-9 bg-[#ff0000] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"><Youtube size={18} /></a>
-                <a href="#" className="w-9 h-9 bg-[#0077b5] rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform"><Linkedin size={18} /></a>
-              </div>
-            </div>
-            <div className="mt-4">
-              <h4 className="text-white text-xs font-bold uppercase mb-4 tracking-widest">Mobile Apps</h4>
-              <div className="flex gap-3">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" className="h-10 cursor-pointer" alt="play store" />
-                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" className="h-10 cursor-pointer" alt="app store" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Links Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 border-t border-gray-800 pt-12 mb-12">
-          <div>
-            <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Quick Links</h4>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Support Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Return Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Seller Policy</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Terms & Conditions</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Contacts</h4>
-            <ul className="space-y-4 text-sm">
-              <li>
-                <span className="block text-gray-500 mb-1">Address</span>
-                <span className="text-white">Alijali Global HQ</span>
-              </li>
-              <li>
-                <span className="block text-gray-500 mb-1">Phone</span>
-                <span className="text-white">+01 234 567 890</span>
-              </li>
-              <li>
-                <span className="block text-gray-500 mb-1">Email</span>
-                <span className="text-blue-500">support@alijali.com</span>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">My Account</h4>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Login</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Order History</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">My Wishlist</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Track Order</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Affiliate Partner</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Seller Zone</h4>
-            <ul className="space-y-3 text-sm">
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Become A Seller <span className="text-[#ff5c00] ml-1">Apply Now</span></a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Login to Seller Panel</a></li>
-              <li><a href="#" className="hover:text-blue-500 transition-colors">Download Seller App</a></li>
-            </ul>
-            <div className="mt-8">
-              <h4 className="text-white text-xs font-bold uppercase mb-6 tracking-widest">Delivery Team</h4>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Login to Delivery Panel</a></li>
-                <li><a href="#" className="hover:text-blue-500 transition-colors">Download Courier App</a></li>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Platform</h4>
+              <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Trade Assurance</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Logistics Services</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Inspection Service</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Production Monitoring</a></li>
               </ul>
             </div>
-          </div>
-          <div>
-            {/* Empty for spacing */}
+            <div>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Sourcing</h4>
+              <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Ready to Ship</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Verified Suppliers</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Apparel Sourcing</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Buyer Central</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white text-xs font-black uppercase mb-8 tracking-[0.2em]">Support</h4>
+              <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-[11px]">
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Report Abuse</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Submit RFQ</a></li>
+                <li><a href="#" className="hover:text-[#ff6a00] transition-colors">Global Logistics</a></li>
+              </ul>
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-xs">Alijali eCommerce CMS 2025</p>
-          <div className="flex items-center gap-4">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-4 opacity-70" alt="paypal" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3 opacity-70" alt="visa" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-6 opacity-70" alt="mastercard" />
+        <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-[11px] font-black uppercase tracking-widest text-gray-600">
+            &copy; 2025 Buying BD Global Ltd. All rights reserved. Trade smarter with verified manufacturers.
+          </p>
+          <div className="flex items-center gap-6 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" className="h-4" alt="paypal" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" className="h-3" alt="visa" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" className="h-6" alt="mastercard" />
+            <span className="text-[10px] font-black uppercase tracking-widest">PCI Secure</span>
           </div>
         </div>
       </div>
