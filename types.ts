@@ -4,6 +4,16 @@ export interface BulkTier {
   price: number;
 }
 
+export interface VariantOption {
+  label: string;
+  priceModifier: number;
+}
+
+export interface ProductVariant {
+  name: string;
+  options: VariantOption[];
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -21,8 +31,9 @@ export interface Product {
   isFlashSale?: boolean;
   isDigital?: boolean;
   deliveryType?: 'Instant' | 'Manual' | '24h';
-  region?: 'Global' | 'BD Only' | 'US' | 'EU';
+  region?: 'Global' | 'BD Only' | 'US' | 'EU' | 'TR';
   bulkTiers?: BulkTier[];
+  variants?: ProductVariant[];
 }
 
 export interface Category {
@@ -37,12 +48,4 @@ export interface Brand {
   name: string;
   logo: string;
   banner?: string;
-}
-
-export interface Banner {
-  id: string;
-  title: string;
-  subtitle: string;
-  image: string;
-  color: string;
 }
